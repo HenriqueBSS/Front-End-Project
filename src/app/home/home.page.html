@@ -1,20 +1,92 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      <img src="/assets/img/logo.jpg" />
+
+      <span>Bruno</span>
+
+      <ion-button (click)="toggleBlocks()" color="light" fill="clear" size="small">
+        <ion-icon slot="icon-only" [name]="initialStep > 0 ? 'arrow-up-outline' : 'arrow-down-outline'"></ion-icon>
+      </ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding" color="dark">
+  <div #background class="background opacity-transition">
+    <div class=" bank-information ion-text-center">
+      <img class="qrcode" src="/assets/img/qr.jpeg" />
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <span><strong>FastFood Bonus</strong></span>
+      <span>ID <strong>041BHSS474</strong></span>
+    </div>
+
+    <ion-list lines="full">
+      <ion-item *ngFor="let item of items" detail>
+        <ion-icon slot="start" [name]="item.icon"></ion-icon>
+        <ion-label>{{item.text}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="logout" color="light" expand="block" fill="outline" href="http://localhost:8100/inicio">
+      <strong>SAIR DA CONTA</strong>
+    </ion-button>
+  </div>
+
+  <div #blocks class="blocks">
+    <ion-card>
+      <ion-item class="ion-margin-vertical" lines="none">
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+        <ion-label><strong>Bônus Lanche</strong></ion-label>
+      </ion-item>
+
+      <ion-card-content class="ion-no-padding">
+        <div class="ion-padding ion-margin-vertical cash">
+          <span class="blue">Fatura atual</span>
+          <span class="blue value">R$ 54,00</span>
+          <span> Total de pontos restantes <span class="green">R$ 113,05</span> </span>
+        </div>
+
+        <div class="ion-padding-vertical footer">
+          <ion-item color="light" lines="none" detail>
+            <ion-icon slot="start" name="pizza-outline"></ion-icon>
+            <ion-label class="ion-text-wrap">compra mais recente em Ifood *Ifood no valor de R$ 54,00</ion-label>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content class="ion-text-center">
+        <ion-icon class="gift" name="gift-outline"></ion-icon>
+
+        <div class="ion-margin-vertical">
+          <ion-text color="dark">
+            <p class="title"><strong>Lanches Rewards</strong></p>
+            <p>Acumule pontos que nunca expiram e troque por lanches em qualquer de nossas filiais que você use.</p>
+          </ion-text>
+        </div>
+
+        <ion-button expand="block" fill="outline">
+          <strong>ATIVE O SEU REWARDS</strong>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
+
+
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-no-margin ion-padding-vertical" color="dark">
+    <ion-slides [options]="slideOptions">
+      <ion-slide *ngFor="let option of options">
+        <div class="container ion-text-left">
+          <ion-icon [name]="option.icon"></ion-icon>
+
+          <span>{{ option.text}}</span>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>

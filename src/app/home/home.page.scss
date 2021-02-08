@@ -1,27 +1,131 @@
-#container {
-  text-align: center;
+ion-header {
+  ion-toolbar {
+    --min-height: 100px;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+    ion-title {
+      align-items: flex-end;
+
+      img {
+        width: 45px;
+        vertical-align: middle;
+        margin-bottom: 10px;
+      }
+
+      span {
+        font-size: 22px;
+      }
+
+      ion-button {
+        display: block;
+      }
+    }
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-content {
+  .background {
+    //opacity:0;
+    .bank-information {
+      .qrcode {
+        width: 100px;
+        margin: 16px auto;
+        display: block;
+      }
+
+      span {
+        margin: 5px 0;
+        font-size: 15px;
+        display: block;
+      }
+    }
+
+    ion-list {
+      margin-top: 32px;
+      background: transparent;
+
+      ion-item {
+        color: #fff;
+        --background: transparent;
+        --detail-icon-opacity: 1;
+
+        &:frist-of-type {
+          border-top: 0.55px solid rgb(255, 255, 255);
+        }
+
+      }
+    }
+    .logout{
+        margin-top: 16px;
+    }
+  }
+
+  .blocks {
+    //essas partes que estão comentadas servem para o evento click no botão e ficar
+    //subindo e decendo, mas por algum motivo não está indo talvez por causa da versão do ionic que estou usando
+    // fazendo com que tenha que implementar mais coisas
+    // position: absolute;
+    // top: 0;
+    // left:0;
+    //  width: 100%;
+    //  height: 100%;
+    //   overflow-y:scroll;
+    //   z-index: 999;
+    ion-card {
+      .cash {
+        span {
+          &.value {
+            font-size: 30px;
+            display: block;
+          }
+
+          &.blue {
+            color: #0ab9cd;
+          }
+
+          &.green {
+            color: #94c22b;
+          }
+        }
+      }
+
+      .footer {
+        background: #f4f5f8;
+      }
+
+      .title {
+        font-size: 20px;
+      }
+
+      .gift {
+        font-size: 30px;
+      }
+    }
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+ion-footer {
+  ion-slide {
+    .container {
+      width: 100%;
+      height: 100px;
+      background: var(--ion-color-primary-tint);
+      padding: 10px;
+      margin: 0 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-  color: #8c8c8c;
+      ion-icon {
+        font-size: 24px;
+      }
 
-  margin: 0;
+      span {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
-#container a {
-  text-decoration: none;
+.opacity-transition {
+  transition: opacity 0.3s;
 }
